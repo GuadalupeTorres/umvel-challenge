@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 
 const SignAllScreens = () => {
   return (
-    <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false,gestureEnabled: false }}>
+    <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false,gestureEnabled: false }}>
       <Stack.Screen name="Welcome" component={Welcome} />
       <Stack.Screen name="Home" component={Home} />
     </Stack.Navigator>

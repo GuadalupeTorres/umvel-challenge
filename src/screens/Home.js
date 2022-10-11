@@ -7,8 +7,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 const Home = ({ navigation }) => {
 
   return (
-    <SafeAreaView  forceInset={{ bottom: 'never'}}>
-      <Text>Home</Text>
+    <SafeAreaView >
+      <Text h15>Home</Text>
     </SafeAreaView>
 
    

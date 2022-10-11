@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
 
 const Welcome = ({ navigation }) => {
 
   return (
-   <Text>hola</Text>
+    <SafeAreaView forceInset={{ bottom: 'never' }}>
+      <Text>Welcome</Text>
+    </SafeAreaView>
   );
 }
 

@@ -25,9 +25,13 @@ export default function App() {
     'Montserrat-SemiBold': require('./assets/fonts/Montserrat-SemiBold.otf'),
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
+
+
+  useEffect(() => {
+    if (!fontsLoaded) {
+      return null;
+    }
+  }, []);
 
 
   useEffect(() => {
@@ -40,7 +44,7 @@ export default function App() {
     <SafeAreaProvider>
       <NavigationContainer>
         <StatusBar style="dark-content" />
-        <ApolloProvider client={client}>
+        <ApolloProvider client={client} store={storePromise}>
           <Provider store={storePromise} >
             <AppNavigation />
           </Provider>

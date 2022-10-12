@@ -7,7 +7,8 @@ const Text = ({ ...props }) => {
   const baseStyle = {
     ...StyleHelper.extractTypographyValue(props),
     ...StyleHelper.extractVariationValue(props),
-    ...StyleHelper.extractTextAlign(props)
+    ...StyleHelper.extractTextAlign(props),
+    ...StyleHelper.extractColorValue(props),
   };
 
 

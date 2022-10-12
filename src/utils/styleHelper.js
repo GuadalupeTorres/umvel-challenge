@@ -1,4 +1,5 @@
 import { Typography } from './Typography';
+import Colors from '@styles/Colors';
 
 const TEXT_ALIGNMENTS = ['center', 'left', 'right'];
 
@@ -42,21 +43,26 @@ const StyleHelper = {
   
   extractTypographyValue: props => {
     const lastProp = getLastProp(HEADERS, props);
-
     return Typography.sizes.get(lastProp);
   },
 
   extractVariationValue: props => {
     const lastProp = getLastProp(FONT_WEIGHTS, props);
-
     return Typography.weight.get(lastProp);
   },
 
   extractTextAlign: props => {
     const lastProp = getLastProp(TEXT_ALIGNMENTS, props);
-
     return lastProp ? { textAlign: lastProp } : null;
   },
+
+  extractColorValue: props => {
+    const colors = Object.keys(Colors);
+    const lastProp = getLastProp(colors, props);
+    return Colors.get(lastProp);
+    
+  },
+
 };
 
 export default StyleHelper;

@@ -3,6 +3,7 @@ import {
   GET_LIST_CHARACTERS_SUCCESS,
   CHARACTERS_ERROR,
   CLEAN_LIST_CHARACTERS,
+  SAVE_DETAIL_INDEX
 } from '../constants';
 
 
@@ -36,4 +37,8 @@ try {
 
 export const cleanDataList = () => async (dispatch) => {
   return dispatch({ type: CLEAN_LIST_CHARACTERS })
+};
+
+export const saveDetailCharacters = (data) => async (dispatch) => {
+  return dispatch({ type: SAVE_DETAIL_INDEX, payload: data });
 };

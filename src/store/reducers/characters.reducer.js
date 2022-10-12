@@ -3,13 +3,15 @@ import {
   GET_LIST_CHARACTERS_SUCCESS,
   CHARACTERS_ERROR,
   CLEAN_LIST_CHARACTERS,
+  SAVE_DETAIL_INDEX
 } from '../constants';
 
 export const initialState = {
 	isLoadingData: false,
 	showError: false,
 	successData:false,
-	dataCharacters: [],
+	dataCharacters: null,
+  detailCharacterIndex:null,
 	error: {},
 
 };
@@ -26,6 +28,13 @@ export default charactersReducer = (state = initialState, action) => {
 				showError: false,
 				successData:true,
 				dataCharacters: action.payload,
+				error: {},
+			};
+
+      case SAVE_DETAIL_INDEX:
+			return {
+				...state,
+				detailCharacterIndex: action.payload,
 				error: {},
 			};
 		case CHARACTERS_ERROR:

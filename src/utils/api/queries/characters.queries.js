@@ -10,6 +10,7 @@ query getCharacters{
       species
       gender
       image
+      type
     }
   }
 }`;

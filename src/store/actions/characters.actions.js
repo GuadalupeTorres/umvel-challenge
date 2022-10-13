@@ -25,7 +25,7 @@ export const getCharacters = (numberPage, filter) => async (dispatch) => {
       nextFetchPolicy: 'network-only'
     }).then(async (response) => {
       if (response.data) {
-        
+
         if (filter) dispatch({ type: GET_LIST_CHARACTER_FILTER, payload: response?.data['characters']?.results });
         else dispatch({ type: GET_LIST_CHARACTERS_SUCCESS, payload: response?.data['characters']?.results });
 
@@ -35,7 +35,6 @@ export const getCharacters = (numberPage, filter) => async (dispatch) => {
       dispatch({ type: CHARACTERS_ERROR, payload: error });
     })
   } catch (error) {
-    console.log('error', error);
     dispatch({ type: CHARACTERS_ERROR, payload: error });
   }
 

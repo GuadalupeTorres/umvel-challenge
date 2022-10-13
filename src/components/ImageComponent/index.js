@@ -27,7 +27,7 @@ const ImageComponent = ({
 
 ImageComponent.propTypes = {
   height: PropTypes.number.isRequired,
-  width : PropTypes.number.isRequired
+  width: PropTypes.number.isRequired
 };
 
 export default ImageComponent;

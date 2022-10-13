@@ -3,6 +3,9 @@ import Colors from '@styles/Colors';
 import { scale, verticalScale } from 'react-native-size-matters';
 
 export default StyleSheet.create({
+  viewContain:{
+    width: '100%'
+  },
   container: {
     flexDirection : 'row',
     height        : verticalScale(40),
@@ -24,5 +27,10 @@ export default StyleSheet.create({
     color: Colors?.textGray, 
     fontSize: 15, 
     paddingLeft: '4%' 
+  },
+  containerImgSearch:{
+    flex: 0.4,
+    alignItems:'flex-end'
   }
+  
 });

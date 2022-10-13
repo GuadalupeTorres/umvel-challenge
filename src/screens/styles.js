@@ -19,8 +19,9 @@ const styles = StyleSheet.create({
     resizeMode: 'cover'
   },
   containerImageSecond:{
-    width: '100%', 
-    height: '25%'
+    width: '100%',
+    height:verticalScale(30),
+    paddingHorizontal:scale(10)
   },
   ScrollView:{
     flex:0.4,

@@ -1,10 +1,14 @@
 import React, { useEffect } from 'react';
-import { Text, ButtonRounded } from '@components';
 import { Image, View } from 'react-native';
 import mailDevice from '@assets/welcome-wave2.png';
 import { verticalScale } from 'react-native-size-matters';
 import Colors from '@styles/Colors';
 import Styles from './styles';
+import { 
+  Text, 
+  ButtonRounded,
+  ImageComponent 
+} from '@components';
 
 //redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -28,12 +32,13 @@ const Details = ({ navigation }) => {
 
   return (
     <View style={Styles.container}>
-      <View style={Styles.containerImageSecond}>
+      {/* <View style={Styles.containerImageSecond}>
         <Image
           style={Styles.imageBackground}
           source={mailDevice}
         />
-      </View>
+      </View> */}
+      <ImageComponent source={mailDevice} height={verticalScale(190)}/>
       <Text h18 semibold orange2 style={[Styles.heading,Styles.marginH20]}>Detail Character</Text>
       <View style={{ flex:1 }}>
       <View style={[Styles.card, Styles.shadowProp]}> 

@@ -11,10 +11,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCharacters } from '@store/actions/characters.actions';
 import { 
   Text, 
+  Search,
   ButtonRounded,
   ImageComponent
 } from '@components';
-import { saveDetailCharacters } from '../store/actions/characters.actions';
+import { cleanDataList, saveDetailCharacters } from '../store/actions/characters.actions';
 import { scale,verticalScale } from 'react-native-size-matters';
 
 
@@ -22,19 +23,47 @@ const Home = ({ navigation }) => {
   const redux = useSelector(state => state);
   const dispatch = useDispatch();
   const data = redux?.characters;
-  const [loading, setLoading] = useState(false);
+  const nextPage = data?.nextPage?.next;
+  const [offset, setOffset] = useState(1);
+  const [filterData, setFilterData] = useState(data?.dataCharacters);
 
   useEffect(() => {
-    dispatch(getCharacters(2));
+    dispatch(cleanDataList());
+    dispatch(getCharacters(offset));
   }, []);
+ 
 
+  useEffect(() => {
+    if (filterData !== null ) {
+      setFilterData([...filterData, ...data?.dataCharacters]);
+    }else{
+      setFilterData(data?.dataCharacters);
+    }
+  }, [nextPage]);
+
+  useEffect(() => {
+
+    setFilterData(data?.dataCharactersFilter);
+  }, [data?.dataCharactersFilter]);
+  
+
+  const goBack = () => {
+    navigation.goBack(null);
+  };
+  
 
   const pagination = () => {
+    dispatch(getCharacters(nextPage));
+    setOffset(nextPage)
+  }
+
+  const searchFilter = (text) => {
+    dispatch(getCharacters(offset,text));
 
   }
 
 
-  const listCharacters = data?.dataCharacters?.map((item) => {
+  const listCharacters = filterData?.map((item) => {
   
     const saveData =()=>{
       navigation.navigate('Details')
@@ -64,26 +93,31 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={Styles.container}>
-      <View style={Styles.containerImageSecond}>
+      <ImageComponent source={mailDevice} height={verticalScale(190)}>
+      <TouchableOpacity style={[Styles.containerImageSecond]} onPress={goBack}>
         <Image
-          style={Styles.imageBackground}
-          source={mailDevice}
+          style={{width:scale(38),height:verticalScale(38)}}
+          source={back}
         />
-      </View>
-      
+      </TouchableOpacity>
+      </ImageComponent>
       <Text h18 semibold orange2 style={[Styles.heading,Styles.marginH20]}>Character List</Text>
+      <View style={Styles.marginH20}>
+        <Search label={'Search'}  onFill={(code) => searchFilter(code)}/>
+      </View>
       <ScrollView style={{ flexGrow: 0 }}>
         <View style={Styles.ScrollView}>
           {listCharacters}
         </View>    
-        <View style={[Styles.alignItemCenter,{marginBottom:25}]}>
+       
+      </ScrollView>
+      <View style={[Styles.alignItemCenter,{marginBottom:25}]}>
           <ButtonRounded size='md' white onPress={pagination}>
             <Text h10 orange2 bold center>
-              Load More
+              Page {nextPage === null || nextPage === undefined? 1: nextPage-1} to {data?.nextPage?.pages}
             </Text>
           </ButtonRounded>
         </View>
-      </ScrollView>
     </View>
   );
 }

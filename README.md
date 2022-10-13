@@ -39,4 +39,8 @@ Expo Client supports running any project that doesn't have custom native modules
 Open the project:
   - Sign in to expo and the project will appear in the app.
   - Or point your phone's camera at the QR code in the terminal.
+  
+## Bonus
+You can enter the following url to test the application
 
+https://expo.dev/accounts/guadalupetorres/projects/guadalupeumvel/builds/747da172-f506-439e-8d3d-b26484804b76

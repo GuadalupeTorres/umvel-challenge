@@ -1,7 +1,8 @@
 {
   "expo": {
     "name": "challenge",
-    "slug": "challenge",
+    "slug": "guadalupeumvel",
+    "owner": "guadalupetorres",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +25,17 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.guadalupetorres.umvel"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7f0912ff-2ec8-4d28-a656-02c5711b5de9"
+      }
     }
   }
 }
+

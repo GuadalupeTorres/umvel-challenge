@@ -26,14 +26,6 @@ export default function App() {
   });
 
 
-
-  useEffect(() => {
-    if (!fontsLoaded) {
-      return null;
-    }
-  }, []);
-
-
   useEffect(() => {
     const configStore = store;
     setStorePromise(configStore);
